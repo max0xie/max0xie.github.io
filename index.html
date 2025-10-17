@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>课堂实时翻译演示</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    textarea {
+      width: 48%;
+      height: 300px;
+      padding: 10px;
+      margin: 0 1%;
+      font-size: 16px;
+      resize: none;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+    .controls {
+      margin-top: 10px;
+    }
+    button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h2>课堂实时翻译演示</h2>
+  <div class="row">
+    <textarea id="sourceText" placeholder="识别的英文内容…" readonly></textarea>
+    <textarea id="translatedText" placeholder="翻译的中文内容…" readonly></textarea>
+  </div>
+  <div class="controls">
+    <button onclick="startRecognition()">开始</button>
+    <button onclick="stopRecognition()">停止</button>
+    <button onclick="exportText()">导出</button>
+    <span id="status">状态：等待中…</span>
+  </div>
+
+  <script type="module" src="./whisper-wasm.js"></script>
+  <script type="module" src="./qwen-translator.js"></script>
+  <script type="module" src="./export.js"></script>
+</body>
+</html>
